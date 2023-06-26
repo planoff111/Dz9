@@ -1,8 +1,11 @@
 package org.entity;
 
+
 public class Castomer {
     private String name;
-    private int ID;
+
+
+
 
     public String getName() {
         return name;
@@ -12,11 +15,7 @@ public class Castomer {
         this.name = name;
     }
 
-    public int getID() {
-        return ID;
-    }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
+
+
 }

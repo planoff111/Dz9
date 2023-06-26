@@ -1,39 +1,23 @@
 package org.entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Kitchen {
+public class Kitchen extends Menu implements ReceiptData {
 
-private String nameOfDish;
-private int quantOfDish;
+    @Override
+    public HashMap<String, ArrayList<String>> receipt() {
+        HashMap<String, ArrayList<String>> dishWithIngridients = new HashMap<>();
+        dishWithIngridients.put("борщ", getBorch());
+        dishWithIngridients.put("суп", getSup());
+        dishWithIngridients.put("Уха", getUha());
+        dishWithIngridients.put("вареники", getWareniki());
+        dishWithIngridients.put("гречка", getGrechka());
+        dishWithIngridients.put("пюре", getPure());
 
-    public String getNameOfDish() {
-        return nameOfDish;
+
+        return dishWithIngridients;
     }
 
-    public void setNameOfDish(String nameOfDish) {
-        this.nameOfDish = nameOfDish;
-    }
 
-    public int getQuantOfDish() {
-        return quantOfDish;
-    }
-
-    public void setQuantOfDish(int quantOfDish) {
-        this.quantOfDish = quantOfDish;
-    }
-
-    public void listOfDish(){
-        ArrayList<String> dishes = new ArrayList<>();
-        dishes.add("Борщ");
-        dishes.add("Рибна Юшка");
-        dishes.add("Суп пюре");
-        dishes.add("Катопля по селянськи");
-        dishes.add("Пюре");
-        dishes.add("Гречка");
-        dishes.add("Різотто");
-        dishes.add("Торт Малиновий");
-        dishes.add("Тістечко Лимонне");
-
-    }
 }

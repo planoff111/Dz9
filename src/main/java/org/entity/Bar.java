@@ -1,34 +1,20 @@
 package org.entity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Bar  {
-   private String nameOfDrink;
-   private int quantOfDrink;
+public class Bar extends Menu implements ReceiptData {
 
-    public String getNameOfDrink() {
-        return nameOfDrink;
+    @Override
+    public HashMap<String, ArrayList<String>> receipt() {
+        HashMap<String, ArrayList<String>> drikWithIngridients = new HashMap<>();
+        drikWithIngridients.put("кампот", getKampot());
+        drikWithIngridients.put("кава", getKava());
+        drikWithIngridients.put("чай", getTea());
+
+
+        return drikWithIngridients;
     }
 
-    public void setNameOfDrink(String nameOfDrink) {
-        this.nameOfDrink = nameOfDrink;
-    }
 
-    public int getQuantOfDrink() {
-        return quantOfDrink;
-    }
-
-    public void setQuantOfDrink(int quantOfDrink) {
-        this.quantOfDrink = quantOfDrink;
-    }
-
-    public void listOfDrinks(){
-        ArrayList<String> drink = new ArrayList<>();
-        drink.add("Кава");
-        drink.add("Чай");
-        drink.add("Кисіль");
-        drink.add("Компот");
-
-    }
 }
