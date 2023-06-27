@@ -2,10 +2,7 @@ package org.entity;
 
 import org.controler.OrderHandler;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Zal  {
 
@@ -40,31 +37,36 @@ public class Zal  {
     }
 
     public void endOrder(HashMap<String, Integer> validOrder,HashMap<String,Double> priceData) {
-
         OrderHandler controller = new OrderHandler();
         Fiscalization fiscalization = new Fiscalization();
         Kitchen kitchen = new Kitchen();
         Bar bar = new Bar();
-        Waitres waitress = new Waitres();
+        Waitress waitress = new Waitress();
 
         if (!validOrder.isEmpty()) {
-            System.out.println(waitress.getPosition() + " " + waitress.getName() +
+            System.out.println("ГОТОВО! " + waitress.getPosition() + " " + waitress.getName() +
                     " несе ваше замовлення " + orderID + " за столик " + tableID);
 
             double totalCost = 0.0;
+            System.out.println("Ваш чек");
 
             for (Map.Entry<String, Integer> entry : validOrder.entrySet()) {
                 String itemName = entry.getKey();
                 Integer quantity = entry.getValue();
                 Double price = priceData.get(itemName);
-
-                System.out.println("Яке містить " + itemName + ", кількість: " + quantity);
-                System.out.println("Ціна: " + itemName + " - " + price);
+                System.out.println( itemName + " " +  quantity + " шт");
 
                 totalCost += price * quantity;
             }
 
-            System.out.println("Загальна вартість замовлення: " + totalCost);
+            System.out.println("Загальна вартість замовлення: " + totalCost + " Не забудьте чаєві)");
+            System.out.println("Введіть суму чаєвих =)");
+            Scanner scanner = new Scanner(System.in);
+            int chay = scanner.nextInt();
+            System.out.println("Ви залишили " + chay + " грн, нашому офіціянту, " + waitress.getName() +
+                    " дякуємо до побачення)");
+
+
         } else {
             System.out.println("Не знайдено жодної позиції!");
             endOrder(controller.handleorder(controller.getOrder(), kitchen.receipt(), bar.receipt()), fiscalization.dataForPrro());

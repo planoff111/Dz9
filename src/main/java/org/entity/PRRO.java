@@ -4,5 +4,5 @@ import java.util.HashMap;
 
 public interface PRRO {
 
-    public HashMap<String, Double> dataForPrro();
+     HashMap<String, Double> dataForPrro();
 }

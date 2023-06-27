@@ -3,7 +3,7 @@ package org.entity;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Waitres {
+public class Waitress {
 
     private final String name = chooseWaiter(listOfWaiters());
     private static String position = "Офіціант";
