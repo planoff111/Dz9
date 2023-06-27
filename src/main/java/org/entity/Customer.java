@@ -1,7 +1,7 @@
 package org.entity;
 
 
-public class Castomer {
+public class Customer {
     private String name;
 
 

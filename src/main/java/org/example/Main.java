@@ -30,11 +30,12 @@ public class Main {
     }
 
     public static void chooseCast(int choose) {
+        Fiscalization fiscalization = new Fiscalization();
         OrderHandler controller = new OrderHandler();
         Kitchen kitchen = new Kitchen();
         Zal zal = new Zal();
         Bar bar = new Bar();
-        File menu = new File("D:\\Hillel\\projects\\Dz9\\src\\main\\resources\\menu");
+        File menu = new File("src\\main\\resources\\menu");
         switch (choose) {
             case 1:
                 zal.welcome();
@@ -46,7 +47,8 @@ public class Main {
                     e.printStackTrace();
                 }
 
-                zal.endOrder(controller.handleorder(controller.getOrder(),kitchen.receipt(),bar.receipt()));
+                zal.endOrder(controller.handleorder(controller.getOrder(),kitchen.receipt(),
+                        bar.receipt()),fiscalization.dataForPrro());
 
                 break;
             case 2:
